@@ -113,15 +113,15 @@ int main() {
 
     
     
-    // VelocityMeasurement<M> velocity;
+    VelocityMeasurement<M> velocity;
 
-    // velocity = imu_vel_model.h(x_imu);
-    // Kalman::Covariance<State<M> > imu_covariance;
-    // imu_covariance << 0.001, 0.0, 0.0, 0.001;
-    // imu_vel_model.setCovariance(imu_covariance);
+    velocity = imu_vel_model.h(x_imu);
+    Kalman::Covariance<State<M> > imu_covariance;
+    imu_covariance << 0.001, 0.0, 0.0, 0.001;
+    imu_vel_model.setCovariance(imu_covariance);
 
-    // x_ekf = ekf.update(imu_vel_model, velocity);  //update by imu 
-    // std::cout <<"update by imu " <<std::endl;
+    auto x_ekf = ekf.update(imu_vel_model, velocity);  //update by imu 
+    std::cout <<"update by imu " <<std::endl;
         
 
     // velocity = odom_vel_model.h(x_odom);
