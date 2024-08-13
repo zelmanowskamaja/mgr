@@ -15,10 +15,10 @@
 // #![no_std]
 
 /// Number of static parameters (this also includes penalty constraints)
-const NUM_STATIC_PARAMETERS: usize = 4000;
+const NUM_STATIC_PARAMETERS: usize = 3600;
 
 /// Number of decision variables
-const NUM_DECISION_VARIABLES: usize = 800;
+const NUM_DECISION_VARIABLES: usize = 1600;
 
 /// Number of ALM-type constraints (dimension of F1, i.e., n1)
 const NUM_CONSTRAINTS_TYPE_ALM: usize = 0;

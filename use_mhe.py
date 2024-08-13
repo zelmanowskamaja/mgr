@@ -64,27 +64,28 @@ def update_position(x, y, theta, phi, u1, u2, L, ts):
     return x, y, theta, phi
 
 polozenia = []
+polozenia = Q_star
 x = 0.0
 y = 0.0
 phi = 0.0
 th = 0.0
 
 T = 400
-print(f'predfkosci len  {len(Q_star)}')
-Q_star = Q_star[:800]
+# print(f'predfkosci len  {len(Q_star)}')
+# Q_star = Q_star[:800]
 
-u1_list = Q_star[0::2]
-u2_list = Q_star[1::2]
+u1_list = U[0::2]
+u2_list = U[1::2]
 
 
-for i in range(T):
-    # print(i)
-    x, y, th, phi = update_position(x, y, th, phi, u1_list[i], u2_list[i], 2.5, 0.1)
+# for i in range(T):
+#     # print(i)
+#     x, y, th, phi = update_position(x, y, th, phi, u1_list[i], u2_list[i], 2.5, 0.1)
     
-    polozenia.append(th)
-    polozenia.append(phi)
-    polozenia.append(x)
-    polozenia.append(y)
+#     polozenia.append(phi)
+#     polozenia.append(th)
+#     polozenia.append(x)
+#     polozenia.append(y)
 
 import matplotlib.pyplot as plt
 
@@ -92,10 +93,10 @@ import matplotlib.pyplot as plt
 # print(f'predfkosci {Q_star}')
 x = polozenia[2::4]
 y = polozenia[3::4]
-th = polozenia[0::4]
+th = polozenia[1::4]
 x1 = Q[2::4]
 y1 = Q[3::4]
-th1 = Q[0::4]
+th1 = Q[1::4]
 
 # plt.figure()
 # plt.plot(th, label='th', marker='o')

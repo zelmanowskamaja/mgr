@@ -18,8 +18,8 @@
  *   + version: 0.0.0
  *   + licence: MIT
  * + Problem
- *   + vars: 800
- *   + parameters: 4000
+ *   + vars: 1600
+ *   + parameters: 3600
  *   + n1: 0
  *   + n2: 0
  *
@@ -37,10 +37,10 @@
 #include "casadi_memory.h"
 
 /* Number of input variables */
-#define NU_MHE_OPTIMIZER 800
+#define NU_MHE_OPTIMIZER 1600
 
 /* Number of static parameters */
-#define NP_MHE_OPTIMIZER 4000
+#define NP_MHE_OPTIMIZER 3600
 
 /* Dimension of F1 (number of ALM constraints) */
 #define N1_MHE_OPTIMIZER 0

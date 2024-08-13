@@ -57,13 +57,14 @@ def generate_data(T, ts, L):
 
         x, y, th, phi = update_position(x, y, th, phi, u1, u2, L, ts)
 
-        Q.append(th)
+        
         Q.append(phi)
+        Q.append(th)
         Q.append(x)
         Q.append(y)
-
-        Q_noise.append(th + np.random.normal(0, 0.1,  1)[0])
+        
         Q_noise.append(phi + np.random.normal(0, 0.1,  1)[0])
+        Q_noise.append(th + np.random.normal(0, 0.1,  1)[0])
         Q_noise.append(x + np.random.normal(0, 0.1,  1)[0])
         Q_noise.append(y + np.random.normal(0, 0.1,  1)[0])
 
@@ -88,8 +89,8 @@ def compute_angular_velocities(positions, linear_velocities, ts):
     angular_velocities = []
     
     for t in range(T - 1):  # Iteracja przez horyzont czasowy T
-        theta_t = positions[t * 4]  # theta at time t
-        theta_t1 = positions[(t + 1) * 4]  # theta at time t+1
+        theta_t = positions[(t * 4)+1]  # theta at time t
+        theta_t1 = positions[((t + 1) * 4)+1]  # theta at time t+1
 
         # Oblicz zmianę kąta
         delta_theta = theta_t1 - theta_t
